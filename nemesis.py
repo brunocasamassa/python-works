@@ -49,9 +49,6 @@ def draw():
     square = pygame.draw.rect(screen, (255, 0, 0), (cordX, cordY ,50, 50))
     enemy = pygame.draw.rect(screen, (255, 0, 155), (200, 150 ,50, 50));
     pygame.display.flip();
-    if square.colliderect(enemy) == True:
-        run=False;
-          
              
     
 """ SCREEN(press START)  """ 
@@ -89,6 +86,8 @@ while JogoAtivo:
                    speedX=0.006
                    run= True;
             if evento.key == pygame.K_SPACE:
+                   print("x ", cordX)
+                   print("y " ,cordY)
                    speedY=-0.3
                    jumping= True;
                    sound2 = pygame.mixer.Sound('MMX2_SE_00019.wav');
@@ -107,13 +106,20 @@ while JogoAtivo:
             cordX+=speedX
         if jumping == True:
             cordY+=speedY
-   
+
+    """square = pygame.draw.rect(screen, (255, 0, 0), (cordX, cordY ,50, 50))
+    enemy = pygame.draw.rect(screen, (255, 0, 155), (200, 150 ,50, 50));"""
+    
         
-        """ground detection"""
-        if cordY +50>= groundY:
+    """ground detection"""
+    if cordY +50>= groundY:
             speedY=0
-        if cordX + 50 >=200 and cordX <=250:
+
+    if cordX + 50 >=200 and cordX +50 <=250 and cordY < 100:
             speedX=0;
+            
+    if cordX + 50 >=200 and cordX +50 <=250 and cordY >= 100:
+            speedY=0;
 
           
 

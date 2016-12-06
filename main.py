@@ -28,8 +28,6 @@ while i<=2:
     y+=70;
     
 
-
-
 def startGame():
     screen.fill((0,0,0));
     pygame.display.flip();
